@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /den>
+
+        <!-- Css Phonegap -->
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- End Css Phonegap -->
+
+        <!-- Jquery Mobile -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <!-- End Jquery mobile -->
+
+        <!-- Jquery -->
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!-- End Jquery -->
+
+        <title>Let's Go?</title>
+    </head>
+    <body>
+        <div>
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>Let's Go?</h1>
+            </div>
+            <div class="app">
+                <img src="img/logo.png">
+                <br>
+                <div id="landmark-1" data-landmark-id="1">
+                    <form>
+                        Name: <input type="text" name="name" id="name"><br>
+                        Last name: <input type="text" name="last_name" id="last_name"><br>
+                        Email: <input type="text" name="email" id="email"><br>
+                        Password: <input type="password" name="passwd" id="passwd"><br>
+                        <input type="submit" id="submit_button" value="Sing up!"><br>
+                    </form>
+                </div>
+                <hr>
+                <h6>Copyright &copy; 2015 - Appnator Apps, inc<h6>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script>
+            signup.create();
+        </script>
+    </body>
+</html>
