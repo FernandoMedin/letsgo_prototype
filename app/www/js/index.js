@@ -61,10 +61,8 @@ var login = {
             });
         return false;
         });
-    }  
-};
+    },
 
-var signup = {
     create: function(){
         $('form').submit(function(){
             var landmarkID = $(this).parent().attr('data-landmark-id');
@@ -87,4 +85,4 @@ var signup = {
         return false;
         });
     }
-}
+};
