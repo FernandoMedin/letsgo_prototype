@@ -25,26 +25,24 @@
         <title>Let's Go</title>
     </head>
     <body>
-        <div>
-            <div data-role="header" data-position="fixed" data-theme="b">
-                <h1>Let's Go?</h1>
+        <div id="home" data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h3>Let's Go</h3>
             </div>
-            <div class="app">
-                <img src="img/logo.png">
+            <div class="content">
+                <img src="img/logo.png"></img><br>
+            </div>
+            <div role="main" class="ui-content">
+                <a href="login.html" class="ui-btn">Login</a>
+                <a href="signup.html" class="ui-btn">Sign up</a>
                 <br>
-                <a href="login.html" class="ui-btn ui-icon-user ui-btn-icon-left">Login</a>
-                <a href="signup.html" class="ui-btn ui-icon-plus ui-btn-icon-left">Sign Up</a>
-                <br>
-                <a href="#" class="ui-btn ui-icon-power ui-btn-icon-left">Exit</a>
-                <br>
-                <hr>
-                <h6>Copyright &copy; 2015 - Appnators Apps, inc<h6>
+                <a class="ui-btn">Exit</a>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h3>Copyright &copy; 2015 - Appnator Apps, inc<h3>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>

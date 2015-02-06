@@ -25,22 +25,28 @@
         <title>Let's Go?</title>
     </head>
     <body>
-        <div>
-            <div data-role="header" data-position="fixed" data-theme="b">
-                <h1>Let's Go?</h1>
+        <div id="home" data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h3>Let's Go</h3>
             </div>
-            <div class="app">
-                <img src="img/logo.png">
-                <br>
-                <div id="landmark-1" data-landmark-id="1">
-                    <form>
-                        Email: <input type="text" name="email" id="email"><br>
-                        Password: <input type="password" name="passwd" id="passwd"><br>
-                        <input type="submit" id="submit_button" value="Login!"><br>
-                    </form>
+                <form>
+                    <div id="landmark-1" data-landmark-id="1">
+                        <div role="main" class="ui-content">
+                            <div class="ui-field-contain">
+                                <label for="gk-26v1rp">Email</label>
+                                <input name="email" id="gk-26v1rp" type="text">
+                            </div>
+                            <div class="ui-field-contain">
+                                <label for="gk-26Zz9p">Password</label>
+                                <input name="passwd" id="gk-26Zz9p" type="password">
+                            </div>
+                            <br>
+                            <input type="submit" id="submit_button" value="Login!"><br>
+                        </div>
+                     </div>
                 </form>
-                <hr>
-                <h6>Copyright &copy; 2015 - Appnator Apps, inc<h6>
+            <div data-role="footer" data-position="fixed">
+                <h3>Copyright &copy; 2015 - Appnator Apps, inc<h3>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

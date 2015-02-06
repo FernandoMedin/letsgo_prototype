@@ -25,8 +25,8 @@
 
     if(mysql_num_rows($result) == 1){
         session_start();
-        $_SESSION['token'] = $_POST['email'];
-        $message = "Now you are Log in! Enjoy it!";
+        $token = mysql_query("SELECT nid_user FROM users WHERE email = '$email' and passwd = '$passwd';");
+        $_SESSION['token'] = mysql_result($token, 0);
         echo json_encode(mysql_result($result, 0));
     }else{
         $data = array('type' => 'error', 'message' => 'Incorrect email or password');
