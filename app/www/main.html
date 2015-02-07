@@ -26,6 +26,10 @@
     </head>
     <body onLoad="show_name();">
         <div id="home" data-role="page">
+
+            <div data-role="panel" id="menupanel" data-position="right">
+            </div>
+
             <div data-role="header" data-position="fixed">
                 <h3>Let's Go</h3>
             </div>
@@ -38,10 +42,10 @@
                 <div data-role="navbar">
                     <ul>
                         <li><a href="main.html" data-icon="home">Home</a></li>
-                        <li><a data-icon="gear">Create</a></li>
-                        <li><a data-icon="search">Find</a></li>
-                        <li><a data-icon="user">Me</a></li>
-                        <li><a data-icon="plus">Options</a></li>
+                        <li><a href="create.html" data-icon="gear">Create</a></li>
+                        <li><a href="find.html" data-icon="search">Find</a></li>
+                        <li><a href="me.html" data-icon="user">Me</a></li>
+                        <li><a href="#menupanel" data-icon="plus">Options</a></li>
                     </ul>
                 </div>
             </div>
