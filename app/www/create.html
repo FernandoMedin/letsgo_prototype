@@ -46,8 +46,53 @@
 
                 <div class="ui-field-contain">
                     <label for="gk-28Kglx">Date:</label>
-                    <input id="gk-28Kglx" type="date">
+                    <input name="event_date" id="gk-28Kglx" type="date">
                 </div>
+
+                <div class="ui-field-contain">
+                    <label for="gk-28KZ3z">Begin time:</label>
+                    <input name="event_hour_in" id="gk-28KZ3z" type="time">
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="gk-28KZ3z">End time:</label>
+                    <input name="event_hour_end" id="gk-28KZ3z" type="time">
+                </div>
+
+                <div class="ui-field-contain">
+                    <label>Event type:</label>
+                    <select name="event_type">
+                        <option value="1">Private</option>
+                        <option value="2">Public</option>
+                    </select>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label>Event category:</label>
+                    <select name="event_category">
+                        <option value="1">Party</option>
+                        <option value="2">Sports</option>
+                        <option value="3">Birthday</option>
+                        <option value="4">Happy Hour</option>
+                        <option value="5">Reunion</option>
+                        <option value="6">Concert</option>
+                        <option value="7">Others</option>
+                    </select>
+                </div>
+
+	
+                <fieldset data-role="controlgroup">
+                    <legend>Event for +18:</legend>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+                        <label for="radio-choice-1">Yes</label>
+
+                        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+                        <label for="radio-choice-2">No</label>
+                </fieldset>
+
+                <br>
+                <input type="submit" id="submit_button" value="Create!"><br>
+
             </div>
             <div data-position="fixed" data-role="footer">
                 <div data-role="navbar">
