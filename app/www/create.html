@@ -34,81 +34,90 @@
             <div class="content">
                 <h2>New Event</h2><br>
 
-                <div class="ui-field-contain">
-                    <label for="gk-28XaGc" type="text">Event name: </label>
-                    <input name="event_name" id="gk-28XaGc" type="text">
+                <div id="landmark-1" data-landmark-id="1">
+                    <form action="javascript: events.create();>
+                        <div class="ui-field-contain">
+                            <label for="gk-28XaGc" type="text">Event name: </label>
+                            <input name="event_name" id="gk-28XaGc" type="text">
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label for="gk-28W7V5">Description:</label>
+                            <textarea name="description" id="gk-28W7V5"></textarea>
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label for="gk-28XaGc" type="text">Event location: </label>
+                            <input name="location" id="gk-28XaGc" type="text">
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label for="gk-28Kglx">Date:</label>
+                            <input name="event_date" id="gk-28Kglx" type="date">
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label for="gk-28KZ3z">Begin time:</label>
+                            <input name="event_hour_in" id="gk-28KZ3z" type="time">
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label for="gk-28KZ3z">End time:</label>
+                            <input name="event_hour_end" id="gk-28KZ3z" type="time">
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label>Event type:</label>
+                            <select name="event_type">
+                                <option value="1">Private</option>
+                                <option value="2">Public</option>
+                            </select>
+                        </div>
+
+                        <div class="ui-field-contain">
+                            <label>Event category:</label>
+                            <select name="event_category">
+                                <option value="1">Party</option>
+                                <option value="2">Sports</option>
+                                <option value="3">Birthday</option>
+                                <option value="4">Happy Hour</option>
+                                <option value="5">Reunion</option>
+                                <option value="6">Concert</option>
+                                <option value="7">Others</option>
+                            </select>
+                        </div>
+            
+                        <fieldset data-role="controlgroup">
+                            <legend>Event for +18:</legend>
+                                <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+                                <label for="radio-choice-1">Yes</label>
+
+                                <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+                                <label for="radio-choice-2">No</label>
+                        </fieldset>
+
+                        <br>
+                        <input type="submit" id="submit_button" value="Create!"><br>
+                    </form>
                 </div>
 
-                <div class="ui-field-contain">
-                    <label for="gk-28W7V5">Description:</label>
-                    <textarea name="description" id="gk-28W7V5"></textarea>
-                </div>
-
-                <div class="ui-field-contain">
-                    <label for="gk-28Kglx">Date:</label>
-                    <input name="event_date" id="gk-28Kglx" type="date">
-                </div>
-
-                <div class="ui-field-contain">
-                    <label for="gk-28KZ3z">Begin time:</label>
-                    <input name="event_hour_in" id="gk-28KZ3z" type="time">
-                </div>
-
-                <div class="ui-field-contain">
-                    <label for="gk-28KZ3z">End time:</label>
-                    <input name="event_hour_end" id="gk-28KZ3z" type="time">
-                </div>
-
-                <div class="ui-field-contain">
-                    <label>Event type:</label>
-                    <select name="event_type">
-                        <option value="1">Private</option>
-                        <option value="2">Public</option>
-                    </select>
-                </div>
-
-                <div class="ui-field-contain">
-                    <label>Event category:</label>
-                    <select name="event_category">
-                        <option value="1">Party</option>
-                        <option value="2">Sports</option>
-                        <option value="3">Birthday</option>
-                        <option value="4">Happy Hour</option>
-                        <option value="5">Reunion</option>
-                        <option value="6">Concert</option>
-                        <option value="7">Others</option>
-                    </select>
-                </div>
-
-	
-                <fieldset data-role="controlgroup">
-                    <legend>Event for +18:</legend>
-                        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-                        <label for="radio-choice-1">Yes</label>
-
-                        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
-                        <label for="radio-choice-2">No</label>
-                </fieldset>
-
-                <br>
-                <input type="submit" id="submit_button" value="Create!"><br>
-
-            </div>
-            <div data-position="fixed" data-role="footer">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="main.html" data-icon="home">Home</a></li>
-                        <li><a href="create.html" data-icon="gear">Create</a></li>
-                        <li><a href="find.html" data-icon="search">Find</a></li>
-                        <li><a href="me.html" data-icon="user">Me</a></li>
-                        <li><a href="#menupanel" data-icon="plus">Options</a></li>
-                    </ul>
+                <div data-position="fixed" data-role="footer">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="main.html" data-icon="home">Home</a></li>
+                            <li><a href="create.html" data-icon="gear">Create</a></li>
+                            <li><a href="find.html" data-icon="search">Find</a></li>
+                            <li><a href="me.html" data-icon="user">Me</a></li>
+                            <li><a href="#menupanel" data-icon="plus">Options</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
+            events.create();
         </script>
     </body>
 </html>
