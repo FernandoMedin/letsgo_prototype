@@ -2,7 +2,7 @@
 <widget id="com.phonegap.letsgo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Let's Go?</name>
     <description>
-        App of a social network of events.
+        Social network for friends' and nearby events
     </description>
     <author email="fernando-medin@hotmail.com" href="#">
         Fernando P. Medin and Bruno Fouz Valente
