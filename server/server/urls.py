@@ -1,13 +1,12 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
+from lets_backend.views import LetsView
+
 admin.autodiscover()
+inst_view = LetsView()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'server.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^teste/', inst_view.name),
+    url(r'^new_user/', inst_view.new_user),
 )
