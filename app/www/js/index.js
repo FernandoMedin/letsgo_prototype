@@ -46,7 +46,7 @@ var login = {
             $.ajax({
                 type: 'POST',
                 data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost/lets_request/signup.php',
+                url: 'http://localhost:8000/new_user/',
                 success: function(data){
                     console.log(data);
                     alert('Your login was successfully created');

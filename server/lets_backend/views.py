@@ -15,12 +15,11 @@ class LetsView(View):
 
     def new_user(self, request, *args, **kwargs):
         inst_query = Query()
-        name = request.GET.get("name", "")
-        last_name = request.GET.get("last_name", "")
-        email = request.GET.get("email", "")
-        passwd = request.GET.get("passwd", "")
+        name = request.POST.get("name", "")
+        last_name = request.POST.get("last_name", "")
+        email = request.POST.get("email", "")
+        passwd = request.POST.get("passwd", "")
 
         inst_query.create_user(self, name, last_name, email, passwd)
 
-        return HttpResponseRedirect("Created!")
-
+        return HttpResponse("Account created!")
