@@ -49,8 +49,12 @@ var login = {
                 url: 'http://localhost:8000/new_user/',
                 success: function(data){
                     console.log(data);
-                    alert('Your login was successfully created');
-                    window.location.replace('index.html');
+                    if(data == "Error"){
+                        alert('There was an error creating your account.');
+                    }else{
+                        alert('Your login was successfully created');
+                        window.location.replace('index.html');
+                    }
                 },
                 error: function(){
                     console.log(data);
