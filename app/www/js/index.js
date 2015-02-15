@@ -22,16 +22,20 @@ var login = {
             $.ajax({
                 type: 'POST',
                 data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost/lets_request/login.php',
+                url: 'http://localhost:8000/login/',
                 success: function(data){
                     console.log(data);
-                    alert('Now you are loged! Enjoy it!');
-                    var name = data.replace(/\"/g, '');
-                    localStorage.name = name;
-                    window.location.replace('main.html?name=' + name);
+                    if(date == "Error"){
+                        alert('Your email or password are incorrect.')
+                    }else{
+                        alert('Now you are loged! Enjoy it!');
+                        var name = data.replace(/\"/g, '');
+                        localStorage.name = name;
+                        window.location.replace('main.html?name=' + name); 
+                    }
                 },
                 error: function(){
-                    alert('Incorrect email or password.');
+                    alert('Error in Database.');
                 }
             });
         return false;

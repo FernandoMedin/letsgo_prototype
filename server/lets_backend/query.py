@@ -22,9 +22,16 @@ class Query(HttpRequest):
 
         return True
 
+    def login(self, request, email, passwd, *args, **kwargs):
 
-    def name(self, test, request, *args, **kwargs):
-        name = test
+        query = ""
 
-        return name
+        if email != '':
+            query = Users.objects.get(email=email, passwd=passwd)
+        else:
+            pass
 
+        if query != "":
+            return True
+
+        return False
