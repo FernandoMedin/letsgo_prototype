@@ -26,7 +26,8 @@ class LetsView(View):
         return HttpResponse("Account created!")
 
     def login(self, request, *args, **kwargs):
-        inst_quert = Query()
+        inst_query = Query()
+        result = False
         email = request.POST.get("email", "")
         passwd = request.POST.get("passwd", "")
 

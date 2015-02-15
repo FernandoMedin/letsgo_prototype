@@ -25,17 +25,18 @@ var login = {
                 url: 'http://localhost:8000/login/',
                 success: function(data){
                     console.log(data);
-                    if(date == "Error"){
-                        alert('Your email or password are incorrect.')
+                    if(data == "Error"){
+                        alert('There was an error finding you account.');
                     }else{
                         alert('Now you are loged! Enjoy it!');
                         var name = data.replace(/\"/g, '');
                         localStorage.name = name;
-                        window.location.replace('main.html?name=' + name); 
+                        window.location.replace('main.html');
                     }
                 },
                 error: function(){
-                    alert('Error in Database.');
+                    console.log(data);
+                    alert('There was an error in the Database.');
                 }
             });
         return false;
