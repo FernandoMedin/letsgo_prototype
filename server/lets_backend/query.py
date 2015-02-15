@@ -32,6 +32,29 @@ class Query(HttpRequest):
             pass
 
         if query != "":
-            return True
+            return query.name
 
         return False
+
+    def new_event(
+            self, request, name_event, description, location, event_date, 
+            start, end, event_type, event_category, age, *args, **kwargs):
+
+        if name_event != "":
+            event = Events(
+                    name_event=name_event,
+                    description=description,
+                    location=location,
+                    event_date=event_date,
+                    start=start,
+                    end=end,
+                    event_type=event_type,
+                    event_category=event_category,
+                    age=age)
+
+            event.save()
+        else:
+            pass
+
+        return True
+

@@ -8,4 +8,5 @@ inst_view = LetsView()
 urlpatterns = patterns('',
     url(r'^new_user/', inst_view.new_user),
     url(r'^login/', inst_view.login),
+    url(r'^new_event/', inst_view.new_event),
 )
