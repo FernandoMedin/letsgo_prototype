@@ -1,0 +1,19 @@
+{
+  "name": "letsgo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FernandoMedin/letsgo",
+  "authors": [
+    "Bruno Fouz Valente <brunofouzv@gmail.com>"
+  ],
+  "description": "App for Let's Go, a social network for friends' and nearby events.",
+  "license": "MIT",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4",
+    "polymer-gestures": "Polymer/polymer-gestures#~0.5.4",
+    "paper-tabs": "Polymer/paper-tabs#~0.5.4",
+    "font-roboto": "Polymer/font-roboto#~0.5.4",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.4",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.4",
+    "paper-button": "Polymer/paper-button#~0.5.4"
+  }
+}

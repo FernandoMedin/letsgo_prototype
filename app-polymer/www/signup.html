@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /den>
+
+        <!-- Css Phonegap -->
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- End Css Phonegap -->
+
+        <!-- Jquery Mobile -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <!-- End Jquery mobile -->
+
+        <!-- Jquery -->
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!-- End Jquery -->
+
+        <title>Let's Go?</title>
+    </head>
+    <body>
+        <div id="home" data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h3>Let's Go</h3>
+            </div>
+                <div id="landmark-1" data-landmark-id="1">
+                    <form action="javascript: login.create();">
+                        <div role="main" class="ui-content">
+                            <div class="ui-field-contain">
+                                <label for="gk-26v1rp">First name</label>
+                                <input name="name" id="gk-26v1rp" type="text">
+                            </div>
+                            <div class="ui-field-contain">
+                                <label for="gk-26v1rp">Last name</label>
+                                <input name="last_name" id="gk-26v1rp" type="text">
+                            </div>
+                            <div class="ui-field-contain">
+                                <label for="gk-26v1rp">Email</label>
+                                <input name="email" id="gk-26v1rp" type="text">
+                            </div>
+                            <div class="ui-field-contain">
+                                <label for="gk-26Zz9p">Password</label>
+                                <input name="passwd" id="gk-26Zz9p" type="password">
+                            </div>
+                            <br>
+                            <input type="submit" id="submit_button" value="Sign up!"><br>
+                        </div>
+                    </form>
+                </div>
+            <div data-role="footer" data-position="fixed">
+                <h3>Copyright &copy; 2015 Appnator Apps, Inc.<h3>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script>
+            login.create();
+        </script>
+    </body>
+</html>
