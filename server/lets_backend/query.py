@@ -47,9 +47,9 @@ class Query(HttpRequest):
                     event_date=event_date,
                     start=start,
                     end=end,
-                    event_type_id=1,
-                    event_category_id=1,
-                    age=1)
+                    event_type_id=event_type,
+                    event_category_id=event_category,
+                    age=age)
 
             event.save()
         else:

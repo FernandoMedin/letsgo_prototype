@@ -27,6 +27,7 @@ class Event_Category(models.Model):
 
 class Events(models.Model):
     user = models.ForeignKey('Users')
+    event_name = models.CharField(max_length=100)
     location = models.CharField(max_length=50)
     date = models.DateField()
     time_in = models.TimeField()
