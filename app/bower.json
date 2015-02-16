@@ -13,6 +13,7 @@
     "paper-tabs": "Polymer/paper-tabs#~0.5.4",
     "font-roboto": "Polymer/font-roboto#~0.5.4",
     "core-header-panel": "Polymer/core-header-panel#~0.5.4",
-    "core-toolbar": "Polymer/core-toolbar#~0.5.4"
+    "core-toolbar": "Polymer/core-toolbar#~0.5.4",
+    "paper-button": "Polymer/paper-button#~0.5.4"
   }
 }
