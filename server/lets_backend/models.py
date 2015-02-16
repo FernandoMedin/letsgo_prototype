@@ -47,3 +47,9 @@ class Event_Description(models.Model):
         return self.name
 
 
+class Event_Confirmed(models.Model):
+    user = models.ForeignKey('Users')
+    event = models.ForeignKey('Events')
+
+    def __unicode__(self):
+        return self.name

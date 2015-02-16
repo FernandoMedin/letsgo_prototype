@@ -80,15 +80,19 @@ var events = {
             $.ajax({
                 type: 'POST',
                 data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost/lets_request/event.php',
+                url: 'http://localhost:8000/debug/',
                 success: function(data){
                     console.log(data);
-                    alert('Your event was successfully created');
-                    window.location.replace('main.html');
+                    if(data == "Error"){
+                        alert('Error');
+                    }else{
+                        alert('Hell Yeah!');
+                        window.location.replace('index.html');
+                    }
                 },
                 error: function(){
                     console.log(data);
-                    alert('There was an error creating your event');
+                    alert('Database Error');
                 }
             });
         return false;

@@ -43,7 +43,6 @@ class Query(HttpRequest):
         if name_event != "":
             event = Events(
                     name_event=name_event,
-                    description=description,
                     location=location,
                     event_date=event_date,
                     start=start,
@@ -53,6 +52,12 @@ class Query(HttpRequest):
                     age=age)
 
             event.save()
+        else:
+            pass
+
+        if description != "":
+            description = Event_Description(description=description)
+            description.save()
         else:
             pass
 

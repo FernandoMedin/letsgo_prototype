@@ -81,3 +81,9 @@ class LetsView(View):
 
         return HttpResponse("Event created!")
 
+    def debug(self, request, *args, **kwargs):
+        inst_query = Query()
+        event_name = request.POST.get("event_name", "")
+
+        return HttpResponse(event_name)
+
