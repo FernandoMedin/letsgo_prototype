@@ -80,14 +80,14 @@ var events = {
             $.ajax({
                 type: 'POST',
                 data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost:8000/debug/',
+                url: 'http://localhost:8000/new_event/',
                 success: function(data){
                     console.log(data);
                     if(data == "Error"){
                         alert('Error');
                     }else{
-                        alert('Hell Yeah!');
-                        window.location.replace('index.html');
+                        alert("Your event was created!");
+                        window.location.replace('main.html');
                     }
                 },
                 error: function(){
