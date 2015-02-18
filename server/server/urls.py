@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^login/', inst_view.login),
     url(r'^new_event/', inst_view.new_event),
     url(r'^debug/', inst_view.debug),
+    url(r'^test/', inst_view.get_user_data),
 )

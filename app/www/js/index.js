@@ -1,6 +1,6 @@
 var main = {
     get_name: function(){
-        return localStorage.name;
+        return localStorage.id_user;
     },
 
     show_name: function(){
@@ -10,6 +10,33 @@ var main = {
         var res = str.replace("nameID", name);
 
         document.getElementById("name").innerHTML = res;
+    },
+
+    get_user_data: function(){
+        $('form').submit(function(){
+            var landmarkID = $(this).parent().attr('data-landmark-id');
+            var postData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                data: postData+'&amp;lid='+landmarkID,
+                url: 'http://localhost:8000/test/',
+                success: function(data){
+                    console.log(data);
+                    if(data == "Error"){
+                        alert('Fucking Error!!');
+                    }else{
+                        alert(data);
+                        var id_user = data.replace(/\"/g, '');
+                    }
+                },
+                error: function(){
+                    console.log(data);
+                    alert('There was an error in the Database.');
+                }
+            });
+        return false;
+        });
     }
 };
 
@@ -29,8 +56,8 @@ var login = {
                         alert('There was an error finding you account.');
                     }else{
                         alert('Now you are loged! Enjoy it!');
-                        var name = data.replace(/\"/g, '');
-                        localStorage.name = name;
+                        var id_user = data.replace(/\"/g, '');
+                        localStorage.id_user = id_user;
                         window.location.replace('main.html');
                     }
                 },

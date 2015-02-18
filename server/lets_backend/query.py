@@ -32,7 +32,7 @@ class Query(HttpRequest):
             pass
 
         if query != "":
-            return query.name
+            return query.id
 
         return False
 
@@ -62,4 +62,19 @@ class Query(HttpRequest):
             pass
 
         return True
+
+    def get_user_data(self, request, id_user, *args, **kwargs):
+
+        user_data = []
+        space = " "
+        if id_user != "":
+            user = Users.objects.get(id=id_user)
+        else:
+            pass
+
+        user_data.append(user.name)
+        user_data.append(user.last_name)
+        user_data.append(user.email)
+
+        return user_data
 

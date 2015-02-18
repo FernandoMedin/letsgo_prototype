@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from lets_backend.query import Query
 from django.views.generic import View
 import datetime
+import json
 
 class LetsView(View):
 
@@ -53,7 +54,7 @@ class LetsView(View):
         end = request.POST.get("end", "")
         event_type = request.POST.get("event_type", "")
         event_category = request.POST.get("event_category", "")
-        age = request.POST.get("age", "")
+        age = request.POST.get("age", "0")
 
         event_date = event_date.replace('/', '')
         event_date = datetime.datetime.strptime(event_date, '%d%m%Y').date()
@@ -81,22 +82,19 @@ class LetsView(View):
 
         return HttpResponse("Event created!")
 
-    def debug(self, request, *args, **kwargs):
+    def get_user_data(self, request, *args, **kwargs):
         inst_query = Query()
-        event_name = request.POST.get("event_name", "")
-        description = request.POST.get("description", "")
-        location = request.POST.get("location", "")
-        event_date = request.POST.get("event_date", "")
-        start = request.POST.get("start", "")
-        end = request.POST.get("end", "")
-        event_type = request.POST.get("event_type", "")
-        event_category = request.POST.get("event_category", "")
-        age = request.POST.get("age", "")
+        id_user = int(request.POST.get("id_user", ""))
 
-        event_date = event_date.replace('/', '')
-        event_date = datetime.datetime.strptime(event_date, '%d%m%Y').date()
-        start = datetime.datetime.strptime(start, '%H:%M').time()
-        end = datetime.datetime.strptime(end, '%H:%M').time()
+        if id_user == "":
+            return HttpResponse("Error")
+        else:
+            user = inst_query.get_user_data(self, id_user)
 
-        return HttpResponse(event_date)
+        user_data = {}
+        user_data['name'] = user[0]
+        user_data['last_name'] = user[1]
+        user_data['email'] = user[2]
+
+        return HttpResponse(json.dumps(user_data))
 
