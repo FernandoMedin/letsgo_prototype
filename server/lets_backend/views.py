@@ -12,6 +12,16 @@ class LetsView(View):
         last_name = request.POST.get("last_name", "")
         email = request.POST.get("email", "")
         passwd = request.POST.get("passwd", "")
+        born = request.POST.get("born", "")
+        sex = request.POST.get("sex", "")
+
+        if int(sex) == 1:
+            sex = "M"
+        else:
+            sex = "F"
+
+        born = born.replace('/', '')
+        born = datetime.datetime.strptime(born, '%d%m%Y').date()
 
         if name == "":
             return HttpResponse("Error")
@@ -21,8 +31,13 @@ class LetsView(View):
             return HttpResponse("Error")
         elif passwd == "":
             return HttpResponse("Error")
+        elif born == "":
+            return HttpResponse("Error")
+        elif sex == "":
+            return HttpResponse("Error")
         else:
-            inst_query.create_user(self, name, last_name, email, passwd)
+            inst_query.create_user(
+                    self, name, last_name, email, passwd, born, sex)
 
         return HttpResponse("Account created!")
 
@@ -40,7 +55,13 @@ class LetsView(View):
             result = inst_query.login(self, email, passwd)
 
         if result != False:
-            return HttpResponse(result)
+            user_data = {}
+            user_data['id_user'] = str(result[0])
+            user_data['name'] = result[1]
+            user_data['last_name'] = result[2]
+            user_data['email'] = result[3]
+            user_data['passwd'] = result[4]
+            return HttpResponse(json.dumps(user_data))
         else:
             return HttpResponse("Error")
 
@@ -85,11 +106,14 @@ class LetsView(View):
     def get_user_data(self, request, *args, **kwargs):
         inst_query = Query()
         id_user = int(request.POST.get("id_user", ""))
+        passwd = request.POST.get("passwd", "")
 
         if id_user == "":
             return HttpResponse("Error")
+        elif passwd == "":
+            return HttpResponse("Error")
         else:
-            user = inst_query.get_user_data(self, id_user)
+            user = inst_query.get_user_data(self, id_user, passwd)
 
         user_data = {}
         user_data['name'] = user[0]

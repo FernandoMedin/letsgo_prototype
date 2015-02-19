@@ -6,7 +6,8 @@ import datetime
 class Query(HttpRequest):
 
     def create_user(
-            self, request, name, last_name, email, passwd, *args, **kwargs):
+            self, request, name, last_name, email, passwd, born, sex, *args,
+            **kwargs):
 
         if name != '':
             query = Users(
@@ -14,6 +15,8 @@ class Query(HttpRequest):
                     last_name=last_name,
                     email=email,
                     passwd=passwd,
+                    born=born,
+                    sex=sex,
                     signup_date=datetime.datetime.now())
 
             query.save()
@@ -32,7 +35,13 @@ class Query(HttpRequest):
             pass
 
         if query != "":
-            return query.id
+            data = []
+            data.append(query.id)
+            data.append(query.name)
+            data.append(query.last_name)
+            data.append(query.email)
+            data.append(query.passwd)
+            return data
 
         return False
 
@@ -63,12 +72,11 @@ class Query(HttpRequest):
 
         return True
 
-    def get_user_data(self, request, id_user, *args, **kwargs):
+    def get_user_data(self, request, id_user, passwd, *args, **kwargs):
 
         user_data = []
-        space = " "
         if id_user != "":
-            user = Users.objects.get(id=id_user)
+            user = Users.objects.get(id=id_user, passwd=passwd)
         else:
             pass
 

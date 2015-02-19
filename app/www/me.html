@@ -24,7 +24,7 @@
 
         <title>Let's Go?</title>
     </head>
-    <body>
+    <body onLoad="show_user();">
         <div id="home" data-role="page">
 
             <div data-role="header" data-position="fixed">
@@ -32,13 +32,9 @@
             </div>
         <div role="main" class="ui-content"></div>
             <div class="content">
-                <div id="landmark-1" data-landmark-id="1">
-                    <form action="javascript: main.get_user_data();">
-                        <input type="text" name="id_user">
-                        <br>
-                        <input type="submit" name="submit_button" value="GO!">
-                    </form>
-                </div>
+                <b>Name:</b> <br><u><span id="name"></span></u><br><br>
+                <b>last name:</b> <br><u><span id="last_name"></span></u><br><br>
+                <b>email:</b> <br><u><span id="email"></span></u>
             </div>
             <div data-position="fixed" data-role="footer">
                 <div data-role="navbar">
@@ -55,7 +51,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
-            main.get_user_data();
+            main.show_user();
         </script>
     </body>
 </html>

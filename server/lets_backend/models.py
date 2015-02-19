@@ -5,6 +5,8 @@ class Users(models.Model):
     last_name = models.CharField(max_length=30)
     email = models.CharField(max_length=50, unique=True)
     passwd = models.CharField(max_length=30)
+    born = models.DateField()
+    sex = models.CharField(max_length=1)
     signup_date = models.DateField()
 
     def __unicode__(self):

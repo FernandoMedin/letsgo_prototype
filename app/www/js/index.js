@@ -1,6 +1,6 @@
 var main = {
     get_name: function(){
-        return localStorage.id_user;
+        return localStorage.name;
     },
 
     show_name: function(){
@@ -12,32 +12,11 @@ var main = {
         document.getElementById("name").innerHTML = res;
     },
 
-    get_user_data: function(){
-        $('form').submit(function(){
-            var landmarkID = $(this).parent().attr('data-landmark-id');
-            var postData = $(this).serialize();
-
-            $.ajax({
-                type: 'POST',
-                data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost:8000/test/',
-                success: function(data){
-                    console.log(data);
-                    if(data == "Error"){
-                        alert('Fucking Error!!');
-                    }else{
-                        alert(data);
-                        var id_user = data.replace(/\"/g, '');
-                    }
-                },
-                error: function(){
-                    console.log(data);
-                    alert('There was an error in the Database.');
-                }
-            });
-        return false;
-        });
-    }
+    show_user: function(){
+        document.getElementById("name").innerHTML = localStorage.name;
+        document.getElementById("last_name").innerHTML = localStorage.last_name;
+        document.getElementById("email").innerHTML = localStorage.email;
+    },
 };
 
 var login = {
@@ -56,8 +35,12 @@ var login = {
                         alert('There was an error finding you account.');
                     }else{
                         alert('Now you are loged! Enjoy it!');
-                        var id_user = data.replace(/\"/g, '');
-                        localStorage.id_user = id_user;
+                        var obj = JSON.parse(data);
+                        localStorage.id_user = obj.id_user;
+                        localStorage.name = obj.name;
+                        localStorage.last_name = obj.last_name;
+                        localStorage.email = obj.email;
+                        localStorage.passwd = obj.passwd;
                         window.location.replace('main.html');
                     }
                 },
@@ -124,5 +107,30 @@ var events = {
             });
         return false;
         });
+    }
+};
+
+var data = {
+    get_user: function(){
+        $.ajax({
+            type: 'POST',
+            data: 'id_user=' + localStorage.id_user + '&passwd=' + localStorage.passwd,
+            url: 'http://localhost:8000/get_user_data/',
+            success: function(data){
+                console.log(data);
+                if(data == "Error"){
+                    alert('Error');
+                    localStorage.clear();
+                    window.location.replace('index.html');
+                }else{
+                    alert("We found your data!");
+                }
+            },
+            error: function(){
+                console.log(data);
+                alert('Database Error');
+            }
+        });
+    return false;
     }
 };
