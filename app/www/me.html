@@ -18,36 +18,46 @@
         <!-- End Jquery mobile -->
 
         <!-- AngularJs -->
-        <script src="js/angular.min.js"></script>
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
         <!-- End AngularJs -->
 
         <title>Let's Go?</title>
     </head>
     <body>
-        <div id="home" data-role="page">
+        <div ng-app="" ng-controller="meController">
+            <div id="home" data-role="page">
 
-            <div data-role="header" data-position="fixed">
-                <h3>Let's Go</h3>
-            </div>
-        <div role="main" class="ui-content"></div>
-            <div class="content">
-                <b>Name:</b> <br><u><span id="name"></span></u><br><br>
-                <b>last name:</b> <br><u><span id="last_name"></span></u><br><br>
-                <b>email:</b> <br><u><span id="email"></span></u>
-            </div>
-            <div data-position="fixed" data-role="footer">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="main.html" data-icon="home">Home</a></li>
-                        <li><a href="create.html" data-icon="gear">Create</a></li>
-                        <li><a href="find.html" data-icon="search">Find</a></li>
-                        <li><a href="me.html" data-icon="user">Me</a></li>
-                        <li><a href="settings.html" data-icon="plus">Settings</a></li>
-                    </ul>
+                <div data-role="header" data-position="fixed">
+                    <h3>Let's Go</h3>
+                </div>
+            <div role="main" class="ui-content">
+                <div class="content">
+                    <b>Name:</b> <br>{{name()}}<br><br>
+                    <b>last name:</b> <br>{{last_name()}}<br><br>
+                    <b>email:</b> <br>{{email()}}
+                </div>
+                <div data-position="fixed" data-role="footer">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="main.html" data-icon="home">Home</a></li>
+                            <li><a href="create.html" data-icon="gear">Create</a></li>
+                            <li><a href="find.html" data-icon="search">Find</a></li>
+                            <li><a href="me.html" data-icon="user">Me</a></li>
+                            <li><a href="settings.html" data-icon="plus">Settings</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script>
+        function meController($scope){
+            $scope.name = function(){ return localStorage.name; }
+            $scope.last_name = function(){ return localStorage.last_name; }
+            $scope.email = function(){ return localStorage.email; }
+            $scope.fullname = function(){ return localStorage.name + " " + localStorage.last_name; }
+        }
+        </script>
     </body>
 </html>

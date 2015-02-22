@@ -1,3 +1,12 @@
+var app = {
+    meController: function($scope){
+        $scope.name = function(){ return localStorage.name; }
+        $scope.last_name = function(){ return localStorage.last_name; }
+        $scope.email = function(){ return localStorage.email; }
+        $scope.fullname = function(){ return localStorage.name + " " + localStorage.last_name; }
+    },
+};
+
 var login = {
     auth: function(){
         $('form').submit(function(){
