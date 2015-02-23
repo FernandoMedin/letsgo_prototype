@@ -5,6 +5,10 @@ var app = {
         $scope.email = function(){ return localStorage.email; }
         $scope.fullname = function(){ return localStorage.name + " " + localStorage.last_name; }
     },
+
+    mainController: function($scope){
+        $scope.name = function(){ return localStorage.name; }
+    },
 };
 
 var login = {

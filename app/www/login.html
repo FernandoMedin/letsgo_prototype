@@ -9,45 +9,52 @@
 
         <!-- Css Phonegap -->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <!-- End Css Phonegap -->
 
-        <!-- Jquery Mobile -->
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <!-- End Jquery mobile -->
+        <!-- Include the compiled Ratchet CSS -->
+        <link href="css/ratchet.css" rel="stylesheet">
+
+        <!-- Include the compiled Ratchet JS -->
+        <script src="js/ratchet.js"></script>
 
         <!-- AngularJs -->
-        <script src="js/angular.min.js"></script>
-        <!-- End AngularJs -->
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 
-        <title>Let's Go?</title>
+        <!-- Jquery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+        <title>Let's Go</title>
     </head>
+ 
     <body>
-        <div id="home" data-role="page">
-            <div data-role="header" data-position="fixed">
-                <h3>Let's Go</h3>
-            </div>
-                <div id="landmark-1" data-landmark-id="1">
-                    <form action="javascript: login.auth();">
-                        <div role="main" class="ui-content">
-                            <div class="ui-field-contain">
-                                <label for="gk-26v1rp">Email</label>
-                                <input name="email" id="gk-26v1rp" type="text">
-                            </div>
-                            <div class="ui-field-contain">
-                                <label for="gk-26Zz9p">Password</label>
-                                <input name="passwd" id="gk-26Zz9p" type="password">
-                            </div>
-                            <br>
-                            <input type="submit" id="submit_button" value="Login!"><br>
-                         </div>
-                    </form>
-                 </div>
-            <div data-role="footer" data-position="fixed">
-                <h3>Copyright &copy; 2015 - Appnator Apps, inc<h3>
-            </div>
+
+        <header class="bar bar-nav">
+             <button class="btn btn-link btn-nav pull-left" onClick="javascript: history.back();">
+                 <span class="icon icon-back"></span>
+                 Back
+             </button>
+            <h1 class="title">Let's go?</h1>
+        </header>
+        <br><br>
+
+        <center>
+        <img src="img/logo.png"></img>
+        </center>
+
+        <div id="landmark-1" data-landmark-id="1">
+            <form action="javascript: auth();">
+                <input name="email" type="text" placeholder="Email">
+                <input name="passwd" type="password" placeholder="Password">
+                <br><br>
+                <button class="btn btn-primary btn-block">Login!</button>
+            </form>
         </div>
+
+        <nav class="bar bar-tab">
+            <a class="tab-item active" href="index.html">
+                Copyright &copy; 2015 Appnator, Inc.
+            </a>
+        </nav>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
