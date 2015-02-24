@@ -8,19 +8,19 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /den>
 
         <!-- Css Phonegap -->
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
         <!-- Include the compiled Ratchet CSS -->
-        <link href="css/ratchet.css" rel="stylesheet">
+        <link href="../css/ratchet.css" rel="stylesheet">
 
         <!-- Include the compiled Ratchet JS -->
-        <script src="js/ratchet.js"></script>
+        <script src="../js/ratchet.js"></script>
 
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 
-        <!-- Jquery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <!-- Polymer -->
+        <link rel="import" href="../bower_components/polymer/polymer.html">
 
         <title>Let's Go</title>
     </head>
@@ -36,19 +36,26 @@
         </header>
         <br><br>
 
-        <center>
-        <img src="img/logo.png"></img>
-        </center>
+        <div class="content">
+            <center>
+            <img src="img/logo.png"></img>
+            </center>
 
-        <div id="landmark-1" data-landmark-id="1">
-            <form action="javascript: login.create();">
-                <input name="name" type="text" placeholder="Name">
-                <input name="last_name" type="text" placeholder="Last name">
-                <input name="email" type="text" placeholder="Email">
-                <input name="passwd" type="password" placeholder="Password">
-                <br><br>
-                <button class="btn btn-primary btn-block">Sign up!</button>
-            </form>
+            <div id="landmark-1" data-landmark-id="1">
+                <form action="javascript: login.create();">
+                    <input name="name" type="text" placeholder="Name">
+                    <input name="last_name" type="text" placeholder="Last name">
+                    <input name="email" type="text" placeholder="Email">
+                    <input name="passwd" type="password" placeholder="Password">
+                    <input name="born" type="date" placeholder="Date of birth">
+                    <select name="sex">
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                    <br><br>
+                    <button class="btn btn-primary btn-block">Sign up!</button>
+                </form>
+            </div>
         </div>
 
         <nav class="bar bar-tab">

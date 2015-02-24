@@ -12,36 +12,43 @@ var app = {
 };
 
 var login = {
-    auth: function(){
-        $('form').submit(function(){
-            var landmarkID = $(this).parent().attr('data-landmark-id');
-            var postData = $(this).serialize();
+    validate: function(){
+        var val_email = document.getElementById("email").value;
+        var val_pass = document.getElementById("passwd").value;
 
-            $.ajax({
-                type: 'POST',
-                data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost:8000/login/',
-                success: function(data){
-                    console.log(data);
-                    if(data == "Error"){
-                        alert('There was an error finding you account.');
-                    }else{
-                        alert('Now you are loged! Enjoy it!');
-                        var obj = JSON.parse(data);
-                        localStorage.id_user = obj.id_user;
-                        localStorage.name = obj.name;
-                        localStorage.last_name = obj.last_name;
-                        localStorage.email = obj.email;
-                        localStorage.passwd = obj.passwd;
-                        window.location.replace('main.html');
-                    }
-                },
-                error: function(){
-                    console.log(data);
-                    alert('There was an error in the Database.');
+        if(val_email.length == 0){
+            alert("Please, write your email.");
+        }else if(val_pass.length == 0){
+            alert("Please, write your password.");
+        }else{
+            this.auth(val_email, val_pass);
+        }
+    },
+
+    auth: function(email, pass){
+        $.ajax({
+            type: 'POST',
+            data: 'email=' + email + '&passwd=' + pass,
+            url: 'http://localhost:8000/login/',
+            success: function(data){
+                console.log(data);
+                if(data == "Error"){
+                    alert('There was an error finding you account.');
+                }else{
+                    alert('Now you are loged! Enjoy it!');
+                    var obj = JSON.parse(data);
+                    localStorage.id_user = obj.id_user;
+                    localStorage.name = obj.name;
+                    localStorage.last_name = obj.last_name;
+                    localStorage.email = obj.email;
+                    localStorage.passwd = obj.passwd;
+                    window.location.replace('main.html');
                 }
-            });
-        return false;
+            },
+            error: function(){
+                console.log(data);
+                alert('There was an error in the Database.');
+            }
         });
     },
 

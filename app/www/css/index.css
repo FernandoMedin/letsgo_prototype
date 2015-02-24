@@ -30,5 +30,13 @@ body {
 
 .content{
     text-align: center;
+    margin-bottom: 50px;
 }
 
+.btn-log {
+    width: 75%;
+}
+
+.ipt-log {
+    width: 75%;
+}

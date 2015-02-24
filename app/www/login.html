@@ -8,19 +8,25 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /den>
 
         <!-- Css Phonegap -->
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
         <!-- Include the compiled Ratchet CSS -->
-        <link href="css/ratchet.css" rel="stylesheet">
+        <link href="../css/ratchet.css" rel="stylesheet">
 
         <!-- Include the compiled Ratchet JS -->
-        <script src="js/ratchet.js"></script>
+        <script src="../js/ratchet.js"></script>
+
 
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-        <!-- Jquery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <!-- Polymer -->
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
+        <link rel="import" href="bower_components/paper-input/paper-input.html">
+        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 
         <title>Let's Go</title>
     </head>
@@ -36,17 +42,19 @@
         </header>
         <br><br>
 
-        <center>
-        <img src="img/logo.png"></img>
-        </center>
+        <div class="content">
+            <center>
+            <img src="img/logo.png"></img>
+            </center>
 
-        <div id="landmark-1" data-landmark-id="1">
-            <form action="javascript: auth();">
-                <input name="email" type="text" placeholder="Email">
-                <input name="passwd" type="password" placeholder="Password">
-                <br><br>
-                <button class="btn btn-primary btn-block">Login!</button>
-            </form>
+            <paper-input id="email" class="ipt-log" label="Your Email" floatingLabel="true"></paper-input><br>
+            <center>
+            <paper-input-decorator class="ipt-log" label="Your Password" floatingLabel="true">
+                <input is="core-input" type="password" id="passwd">
+            </paper-input-decorator>
+            </center>
+            <br><br>
+            <paper-button id="submit" class="btn-log" raised onClick="javascript: login.validate();">Login!</paper-button>
         </div>
 
         <nav class="bar bar-tab">
@@ -58,7 +66,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
-            login.auth();
+            login.validate();
         </script>
     </body>
 </html>

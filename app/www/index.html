@@ -8,7 +8,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /den>
 
         <!-- Css Phonegap -->
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
         <!-- Include the compiled Ratchet CSS -->
         <link href="css/ratchet.css" rel="stylesheet">
@@ -19,6 +19,12 @@
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 
+        <!-- Polymer -->
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
+        <link rel="import" href="components/paper-input/paper-input.html">
+        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
         <title>Let's Go</title>
     </head>
     <body>
@@ -28,14 +34,17 @@
         </header>
         <br><br>
 
-        <center>
-        <img src="img/logo.png"></img>
-        </center>
+        <div class="content">
+            <center>
+            <img src="img/logo.png"></img>
+            </center>
 
-        <button class="btn btn-primary btn-block" onClick="javascript: location.href='login.html'">Login</button>
-        <button class="btn btn-primary btn-block" onClick="javascript: location.href='signup.html'">Sign Up</button>
-        <br>
-        <button class="btn btn-primary btn-block" onClick="javascript: location.href='#'">Exit</button>
+            <paper-button class="btn-log" raised onClick="javascript: location.href='login.html'">Login</paper-button>
+            <br><br>
+            <paper-button class="btn-log" raised onClick="javascript: location.href='signup.html'">Sign Up</paper-button>
+            <br><br><br>
+            <paper-button class="btn-log" raised onClick="javascript: location.href='#'">Exit</paper-button>
+        </div>
 
         <nav class="bar bar-tab">
             <a class="tab-item active" href="index.html">
