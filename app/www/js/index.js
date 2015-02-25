@@ -52,59 +52,49 @@ var login = {
         });
     },
 
-    create: function(){
-        $('form').submit(function(){
-            var landmarkID = $(this).parent().attr('data-landmark-id');
-            var postData = $(this).serialize();
+    get_create_data: function(){
+        var val_name = document.getElementById("name").value;
+        var val_last_name = document.getElementById("last_name").value;
+        var val_email = document.getElementById("email").value;
+        var val_pass = document.getElementById("passwd").value;
+        var val_birth = document.getElementById("born").value;
+        var val_sex = document.getElementById("sex").value;
 
-            $.ajax({
-                type: 'POST',
-                data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost:8000/new_user/',
-                success: function(data){
-                    console.log(data);
-                    if(data == "Error"){
-                        alert('There was an error creating your account.');
-                    }else{
-                        alert('Your login was successfully created');
-                        window.location.replace('index.html');
-                    }
-                },
-                error: function(){
-                    console.log(data);
-                    alert('There was an error creating your login');
+        if(val_name.length < 1){
+            alert("Please, write your name.");
+        }else if(val_last_name.length < 1){
+            alert("Please, write your last name.");
+        }else if(val_email.length < 5){
+            alert("Please, write your email");
+        }else if(val_pass.length < 5){
+            alert("Your password need at least 6 characters.");
+        }else if(val_birth.length < 6){
+            alert("Please, select your birth date.");
+        }else if(val_sex == 1 || val_sex == 2){
+            this.create(val_name, val_last_name, val_email, val_pass, val_birth, val_sex);
+        }else{
+            alert("Please, choose your sex.");
+        }
+    },
+
+    create: function(name, last, email, pass, birth, sex){
+        $.ajax({
+            type: 'POST',
+            data: 'name=' + name + '&last_name=' + last + '&email=' + email + '&passwd=' + pass + '&born=' + birth + '&sex=' + sex,
+            url: 'http://localhost:8000/new_user/',
+            success: function(data){
+                console.log(data);
+                if(data == "Error"){
+                    alert('There was an error creating your account.');
+                }else{
+                    alert('Your account was create!');
+                    window.location.replace('index.html');
                 }
-            });
-        return false;
+            },
+            error: function(){
+                console.log(data);
+                alert('There was an error in the Database.');
+            }
         });
-    }
-};
-
-var events = {
-    create: function(){
-        $('form').submit(function(){
-            var landmarkID = $(this).parent().attr('data-landmark-id');
-            var postData = $(this).serialize();
-
-            $.ajax({
-                type: 'POST',
-                data: postData+'&amp;lid='+landmarkID,
-                url: 'http://localhost:8000/new_event/',
-                success: function(data){
-                    console.log(data);
-                    if(data == "Error"){
-                        alert('Error');
-                    }else{
-                        alert("Your event was created!");
-                        window.location.replace('main.html');
-                    }
-                },
-                error: function(){
-                    console.log(data);
-                    alert('Database Error');
-                }
-            });
-        return false;
-        });
-    }
+    },
 };
