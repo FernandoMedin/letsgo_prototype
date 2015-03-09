@@ -18,33 +18,38 @@
 
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-
-        <!-- Polymer -->
-        <link rel="import" href="../bower_components/polymer/polymer.html">
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
         <title>Let's Go</title>
     </head>
     <body>
-        <div ng-app="" ng-controller="meController">
+        <div class="content">
+            <div ng-app="" ng-controller="meController">
 
-            <header class="bar bar-nav">
-                <h1 class="title">Let's go?</h1>
-            </header>
-            <br><br>
+                <header class="bar bar-nav">
+                    <h1 class="title">Let's go?</h1>
+                </header>
+                <br><br>
 
-            <center>
-            <img src="img/logo.png"></img>
+                <center>
+                <img src="img/logo.png"></img>
 
-            <p>Name: {{show_name()}}</p>
-            <p>Email: {{show_email()}}</p>
-            </center>
+                <p>Name: {{show_name()}}</p>
+                <p>Email: {{show_email()}}</p>
+                <br>
+                <paper-button raised onClick="get_pic();">Get Picture</paper-button>
+                <br>
+                <img id="myImage" src="">
+                </center>
+        </div>
 
             <nav class="bar bar-tab">
                 <a class="tab-item active" href="javascript: location.href='main.html';">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">Home</span>
                 </a>
-                <a class="tab-item" href="create.html">
+                <a class="tab-item" href="javascript: location.href='create.html'">
                     <span class="icon icon-star-filled"></span>
                     <span class="tab-label">Create</span>
                 </a>
@@ -57,8 +62,8 @@
                     <span class="tab-label">Profile</span>
                 </a>
                 <a class="tab-item" href="#">
-                    <span class="icon icon-gear"></span>
-                    <span class="tab-label">Settings</span>
+                    <span class="icon icon-bars"></span>
+                    <span class="tab-label">More</span>
                 </a>
             </nav>
 

@@ -19,12 +19,6 @@
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 
-        <!-- Polymer -->
-        <link rel="import" href="bower_components/polymer/polymer.html">
-        <link rel="import" href="bower_components/paper-button/paper-button.html">
-        <link rel="import" href="components/paper-input/paper-input.html">
-        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-
         <title>Let's Go</title>
     </head>
     <body>
@@ -39,11 +33,12 @@
             <img src="img/logo.png"></img>
             </center>
 
-            <paper-button class="btn-log" raised onClick="javascript: location.href='login.html'">Login</paper-button>
-            <br><br>
-            <paper-button class="btn-log" raised onClick="javascript: location.href='signup.html'">Sign Up</paper-button>
-            <br><br><br>
-            <paper-button class="btn-log" raised onClick="javascript: location.href='#'">Exit</paper-button>
+        <button class="btn btn-primary btn-block" onClick="javascript: location.href='login.html'">Login</button>
+        <br>
+        <button class="btn btn-primary btn-block" onClick="javascript: location.href='signup.html'">Sign up</button>
+        <br><br>
+        <button class="btn btn-primary btn-block">Exit</button>
+
         </div>
 
         <nav class="bar bar-tab">

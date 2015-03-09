@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from lets_backend.models import Users, Events, Event_Description
+from lets_backend.models \
+        import Users, Events, Event_Description, Event_Type, Event_Category
 from django.db import models
 import datetime
 
@@ -46,27 +47,41 @@ class Query(HttpRequest):
         return False
 
     def new_event(
-            self, request, name_event, description, location, event_date, 
-            start, end, event_type, event_category, age, *args, **kwargs):
+            self, request, id_user, name_event, location, event_date, begin, 
+            end, event_type, event_category, *args, **kwargs):
 
         if name_event != "":
             event = Events(
-                    name_event=name_event,
+                    user_id=id_user,
+                    event_name=name_event,
                     location=location,
-                    event_date=event_date,
-                    start=start,
-                    end=end,
-                    event_type_id=event_type,
-                    event_category_id=event_category,
-                    age=age)
-
+                    date=event_date,
+                    time_in=begin,
+                    time_end=end,
+                    event_type=Event_Type.objects.get(id=event_type),
+                    event_category=Event_Category.objects.get(id=event_category),
+                    age=False)
             event.save()
+            my_event = Events.objects.get(user_id=id_user, 
+                    event_name=name_event,
+                    date=event_date)
         else:
             pass
 
+        if event != "":
+            data = []
+            data.append(my_event.id)
+            return data
+
+        return False
+
+    def add_description(self, request, id_event, description):
+
         if description != "":
-            description = Event_Description(description=description)
-            description.save()
+            event_description = Event_Description(
+                    event_id=id_event, 
+                    description=description)
+            event_description.save()
         else:
             pass
 
@@ -85,4 +100,18 @@ class Query(HttpRequest):
         user_data.append(user.email)
 
         return user_data
+
+    def get_event_type(self, request, *args, **kwargs):
+
+        res_dict = {}
+        type_data = []
+        event_type = Event_Type.objects.raw(
+                'SELECT * FROM lets_backend_event_type')
+
+        for i in event_type:
+            res_dict['id'] = i.id
+            res_dict['type'] = i.event_type
+            type_data.append(res_dict)
+
+        return type_data
 

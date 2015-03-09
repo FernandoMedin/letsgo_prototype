@@ -16,47 +16,75 @@
         <!-- Include the compiled Ratchet JS -->
         <script src="../js/ratchet.js"></script>
 
+
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-
-        <!-- Polymer -->
-        <link rel="import" href="../bower_components/polymer/polymer.html">
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
         <title>Let's Go</title>
     </head>
     <body>
+        <div ng-app="">
 
-        <header class="bar bar-nav">
-            <h1 class="title">Let's go?</h1>
-        </header>
-        <br><br>
+            <header class="bar bar-nav">
+                <h1 class="title">Let's go?</h1>
+            </header>
+            <br><br>
 
-        <center>
-        <img src="img/logo.png"></img>
-        </center>
+            <div class="content">
+                <center>
+                <img src="img/logo.png"></img>
+                </center>
 
-        <nav class="bar bar-tab">
-            <a class="tab-item active" href="main.html">
-                <span class="icon icon-home"></span>
-                <span class="tab-label">Home</span>
-            </a>
-            <a class="tab-item" href="create.html">
-                <span class="icon icon-star-filled"></span>
-                <span class="tab-label">Create</span>
-            </a>
-            <a class="tab-item" href="#">
-                <span class="icon icon-search"></span>
-                <span class="tab-label">Find</span>
-            </a>
-            <a class="tab-item" href="me.html">
-                <span class="icon icon-person"></span>
-                <span class="tab-label">Profile</span>
-            </a>
-            <a class="tab-item" href="#">
-                <span class="icon icon-gear"></span>
-                <span class="tab-label">Settings</span>
-            </a>
-        </nav>
+                <input type="text" placeholder="Event Name" id="name">
+                <br>
+                <input type="text" placeholder="Event Location" id="location">
+                <br>
+                <input type="date" placeholder="Event Date" id="event_date">
+                <br>
+                <input type="time" placeholder="Event Begin Time" id="event_begin">
+                <br>
+                <input type="time" placeholder="Event End Time" id="event_end">
+                <br>
+                <select id="event_type">
+                    <option value="1">Public</option>
+                    <option value="2">Private</option>
+                </select>
+                <br>
+                <select id="event_category">
+                    <option value="1">Party</option>
+                </select>
+                <br>
+                <textarea rows="5" id="description" placeholder="Event Description"></textarea>
+                <br><br>
+                <button class="btn btn-primary btn-block" onClick="javascript: event_data.validate();">Create!</button>
+
+            </div>
+
+            <nav class="bar bar-tab">
+                <a class="tab-item active" href="javascript: location.href='main.html';">
+                    <span class="icon icon-home"></span>
+                    <span class="tab-label">Home</span>
+                </a>
+                <a class="tab-item" href="javascript: location.href='create.html'">
+                    <span class="icon icon-star-filled"></span>
+                    <span class="tab-label">Create</span>
+                </a>
+                <a class="tab-item" href="#">
+                    <span class="icon icon-search"></span>
+                    <span class="tab-label">Find</span>
+                </a>
+                <a class="tab-item" href="javascript: location.href='me.html';">
+                    <span class="icon icon-person"></span>
+                    <span class="tab-label">Profile</span>
+                </a>
+                <a class="tab-item" href="#">
+                    <span class="icon icon-bars"></span>
+                    <span class="tab-label">More</span>
+                </a>
+            </nav>
+        </div>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

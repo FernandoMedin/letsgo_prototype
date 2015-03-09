@@ -1,3 +1,75 @@
+function get_pic(){
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+    });
+}
+
+function onSuccess(imageData) {
+    var image = document.getElementById('myImage');
+    image.src = "data:image/jpeg;base64," + imageData;
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+var event_data = {
+    validate: function(){
+        var id_user = localStorage.id_user;
+        var name = document.getElementById("name").value;
+        var local = document.getElementById("location").value;
+        var date = document.getElementById("event_date").value;
+        var begin = document.getElementById("event_begin").value;
+        var end = document.getElementById("event_end").value;
+        var event_type = document.getElementById("event_type").value;
+        var event_category = document.getElementById("event_category").value;
+        var description = document.getElementById("description").value;
+
+        if(!id_user){
+            alert("You are offline. Please, login with your account.");
+            location.href="index.html";
+        }else if(!name){
+            alert("Please, write an event name.");
+        }else if(!local){
+            alert("Please, write the location of your event.");
+        }else if(!date){
+            alert("Please, choose an event date,.");
+        }else if(!begin){
+            alert("Please, select a begin event time.");
+        }else if(!end){
+            alert("Please, select an end event time.");
+        }else if(!event_type){
+            alert("Please, select an event type.");
+        }else if(!event_category){
+            alert("Please, select an event category");
+        }else{
+            this.create_event(id_user, name, local, date, begin, end, event_type, event_category, description);
+        }
+    },
+
+    create_event: function(id, name, local, date, begin, end, type, category, desc){
+        $.ajax({
+            type: 'POST',
+            data: 'id_user=' + id + '&event_name=' + name + '&location=' + local + '&event_date=' + date + '&begin=' + begin + '&end=' + end + '&event_type=' + type + '&event_category=' + category + '&description=' + desc,
+            url: 'http://localhost:8000/new_event/',
+            success: function(data){
+                console.log(data);
+                if(data == "Error"){
+                    alert('There was an error creating your event.');
+                }else{
+                    alert('Event created!');
+                    location.href="main.html"
+                }
+            },
+            error: function(){
+                console.log(data);
+                alert('There was an error in the Database.');
+            }
+        });
+    },
+}
+
 var app = {
     meController: function($scope){
         $scope.name = function(){ return localStorage.name; }

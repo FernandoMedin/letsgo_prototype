@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^new_user/', inst_view.new_user),
     url(r'^login/', inst_view.login),
     url(r'^new_event/', inst_view.new_event),
+    url(r'^get_type/', inst_view.get_event_type),
     url(r'^test/', inst_view.get_user_data),
 )

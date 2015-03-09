@@ -16,17 +16,10 @@
         <!-- Include the compiled Ratchet JS -->
         <script src="../js/ratchet.js"></script>
 
-
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-        <!-- Polymer -->
-        <link rel="import" href="bower_components/polymer/polymer.html">
-        <link rel="import" href="bower_components/paper-button/paper-button.html">
-        <link rel="import" href="bower_components/paper-input/paper-input.html">
-        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 
         <title>Let's Go</title>
     </head>
@@ -47,29 +40,23 @@
             <img src="img/logo.png"></img>
             </center>
 
-            <div id="landmark-1" data-landmark-id="1">
-                <form action="javascript: login.create();">
-                    <paper-input id="name" class="ipt-log" label="Your Name" floatingLabel="true"></paper-input><br>
-                    <paper-input id="last_name" class="ipt-log" label="Your Last Name" floatingLabel="true"></paper-input><br>
-                    <paper-input id="email" class="ipt-log" label="Your Email" floatingLabel="true"></paper-input><br>
-                    <center>
-                    <paper-input-decorator class="ipt-log" label="Your Password" floatingLabel="true">
-                        <input is="core-input" type="password" id="passwd">
-                    </paper-input-decorator>
-                    <paper-input-decorator class="ipt-log" label="Your Birth Date" floatingLabel="true">
-                        <input is="core-input" type="date" id="born">
-                    </paper-input-decorator>
-                    <paper-input-decorator class="ipt-log" label="Select your Sex" floatingLabel="true">
-                        <select name="sex" id="sex">
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select>
-                    </paper-input>
-                    </center>
-                    <br><br>
-                    <paper-button id="submit" class="btn-log" raised onClick="javascript: login.get_create_data();">Sign up!</paper-button>
-                </form>
-            </div>
+            <input type="text" placeholder="Your Name" id="name">
+            <br>
+            <input type="text" placeholder="Your Last Name" id="last_name">
+            <br>
+            <input type="text" placeholder="Your email" id="email">
+            <br>
+            <input type="password" placeholder="Your password" id="passwd">
+            <br>
+            <input type="date" placeholder="Your Birth Date" id="born">
+            <br>
+            <select id="sex">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+            <br><br>
+            <button class="btn btn-primary btn-block" onClick="javascript: login.get_create_data();">Sign Up!</button>
+
         </div>
 
         <nav class="bar bar-tab">
@@ -80,8 +67,5 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script>
-            login.get_create_data();
-        </script>
     </body>
 </html>

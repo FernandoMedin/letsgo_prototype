@@ -19,9 +19,6 @@
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 
-        <!-- Polymer -->
-        <link rel="import" href="../bower_components/polymer/polymer.html">
-
         <title>Let's Go</title>
     </head>
     <body>
@@ -43,7 +40,7 @@
                     <span class="icon icon-home"></span>
                     <span class="tab-label">Home</span>
                 </a>
-                <a class="tab-item" href="create.html">
+                <a class="tab-item" href="javascript: location.href='create.html'">
                     <span class="icon icon-star-filled"></span>
                     <span class="tab-label">Create</span>
                 </a>
@@ -65,7 +62,7 @@
             <script type="text/javascript" src="js/index.js"></script>
             <script>
             function mainController($scope){
-                $scope.show_name = function(){ return localStorage.name; }
+                $scope.show_name = localStorage.name;
             }
             </script>
         </div>

@@ -56,3 +56,11 @@ class Event_Confirmed(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Users_Pics(models.Model):
+    user = models.ForeignKey('Users')
+    path = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
+
