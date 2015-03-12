@@ -22,7 +22,7 @@
         <title>Let's Go</title>
     </head>
     <body>
-        <div ng-app="" ng-controller="mainController">
+        <div ng-app="" ng-controller="eventController">
 
             <header class="bar bar-nav">
                 <h1 class="title">Let's go?</h1>
@@ -31,8 +31,6 @@
 
             <center>
             <img src="img/logo.png"></img>
-
-            <p>Hi {{show_name()}}! Welcome to Let's go!</p>
 
             </center>
             <nav class="bar bar-tab">
@@ -61,8 +59,7 @@
             <script type="text/javascript" src="cordova.js"></script>
             <script type="text/javascript" src="js/index.js"></script>
             <script>
-            function mainController($scope){
-                $scope.show_name = function(){ return localStorage.name; }
+            function eventController($scope){
             }
             </script>
         </div>

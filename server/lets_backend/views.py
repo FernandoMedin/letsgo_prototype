@@ -81,8 +81,8 @@ class LetsView(View):
 
         form_date = event_date.replace('/', '')
         form_date = datetime.datetime.strptime(form_date, '%d%m%Y').date()
-        start = datetime.datetime.strptime(start, '%H:%M').time()
-        end = datetime.datetime.strptime(end, '%H:%M').time()
+        start = datetime.datetime.strptime(start, '%H:%M:%S').time()
+        end = datetime.datetime.strptime(end, '%H:%M:%S').time()
 
         result = inst_query.new_event(self, id_user, event_name, location,
                 form_date, start, end, event_type, event_category)
@@ -123,4 +123,15 @@ class LetsView(View):
             data.append(data_dict)
 
         return HttpResponse(json.dumps(data))
+
+    def show_events(self, request, *args, **kwargs):
+        inst_query = Query()
+
+        event_data = inst_query.get_events(self)
+        e_dict = {}
+        e_data = []
+        for i in event_data:
+            e_data.append({'id': i['id'], 'name': i['name']})
+
+        return HttpResponse(json.dumps(e_data))
 

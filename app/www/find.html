@@ -22,19 +22,27 @@
         <title>Let's Go</title>
     </head>
     <body>
-        <div ng-app="" ng-controller="mainController">
+        <div ng-app="" ng-controller="findController">
 
             <header class="bar bar-nav">
                 <h1 class="title">Let's go?</h1>
             </header>
             <br><br>
 
-            <center>
-            <img src="img/logo.png"></img>
+            <div class="content">
+                <center>
+                <img src="img/logo.png"></img>
 
-            <p>Hi {{show_name()}}! Welcome to Let's go!</p>
+                <ul class="table-view">
+                    <li ng-repeat="x in names" class="table-view-cell">
+                        {{ x.name }}
+                        <button class="btn btn-primary">Check!</button>
+                    </li>
+                </ul>
 
-            </center>
+                </center>
+            </div>
+
             <nav class="bar bar-tab">
                 <a class="tab-item active" href="javascript: location.href='main.html';">
                     <span class="icon icon-home"></span>
@@ -61,8 +69,9 @@
             <script type="text/javascript" src="cordova.js"></script>
             <script type="text/javascript" src="js/index.js"></script>
             <script>
-            function mainController($scope){
-                $scope.show_name = function(){ return localStorage.name; }
+            function findController($scope, $http){
+                $http.get("http://localhost:8000/get_events/")
+                    .success(function(response) {$scope.names = response;});
             }
             </script>
         </div>

@@ -115,3 +115,17 @@ class Query(HttpRequest):
 
         return type_data
 
+    def get_events(self, request, *args, **kwargs):
+
+        e_dict = {}
+        e_data = []
+        ids = []
+        names = []
+        events = Events.objects.raw(
+                'SELECT * FROM lets_backend_events')
+
+        for i in events:
+            e_data.append({'id': i.id, 'name': i.event_name})
+
+        return e_data
+
