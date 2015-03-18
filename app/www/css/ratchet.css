@@ -387,6 +387,16 @@ p {
   background-color: #428bca;
   border: 1px solid #428bca;
 }
+.btn-maybe {
+  color: #fff;
+  background-color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+.btn-no {
+  color: #fff;
+  background-color: #c0392b;
+  border: 1px solid #c0392b;
+}
 .btn-primary:active, .btn-primary.active {
   color: #fff;
   background-color: #3071a9;

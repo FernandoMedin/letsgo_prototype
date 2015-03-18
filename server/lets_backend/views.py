@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 from lets_backend.query import Query
 from django.views.generic import View
 import datetime
@@ -128,10 +128,28 @@ class LetsView(View):
         inst_query = Query()
 
         event_data = inst_query.get_events(self)
-        e_dict = {}
         e_data = []
         for i in event_data:
             e_data.append({'id': i['id'], 'name': i['name']})
+
+        return HttpResponse(json.dumps(e_data))
+
+    def test(self, request, *args, **kwargs):
+        inst_query = Query()
+
+        id_event = request.GET.get("id_event", "")
+        event_data = inst_query.get_event_data(self, id_event)
+        e_data = []
+        for i in event_data:
+            e_data.append({'id': i['id'], 
+                'name': i['name'],
+                'location': i['location'],
+                'date': i['date'],
+                'begin': i['begin'],
+                'end': i['end'],
+                'description': i['description'],
+                'user_name': i['user_name'],
+                'user_last_name': i['user_last_name']})
 
         return HttpResponse(json.dumps(e_data))
 

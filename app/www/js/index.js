@@ -1,3 +1,33 @@
+var appControllers = angular.module('letsGo', []);
+
+appControllers.controller('findController', function($scope, $http){
+    $http.get("http://localhost:8000/get_events/")
+        .success(function(response) {$scope.names = response;});
+    $scope.check_event = function(id_event){
+        location.href="/html/event.html?id_event=" + id_event; 
+    }
+});
+
+appControllers.controller('eventController', function($scope, $http){
+    var url = document.location.href;
+    var params = url.split('?');
+    var id_event = params[1].split('=')[1];
+    $http.get("http://localhost:8000/get_event_data?id_event=" + id_event)
+        .success(function(response) {$scope.names = response;});
+
+    $scope.confirm_event = function(id_event){
+        var id_user = localStorage.id_user;
+        
+        if(id_user){
+            alert(id_user);
+        }else{
+            alert("You were disconnect. Please, login again.")
+            localStorage.clear();
+            location.href = '../index.html'
+        }
+    }
+});
+
 function get_pic(){
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
         destinationType: Camera.DestinationType.DATA_URL,

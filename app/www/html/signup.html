@@ -11,32 +11,51 @@
         <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
         <!-- Include the compiled Ratchet CSS -->
-        <link href="css/ratchet.css" rel="stylesheet">
+        <link href="../css/ratchet.css" rel="stylesheet">
 
         <!-- Include the compiled Ratchet JS -->
-        <script src="js/ratchet.js"></script>
+        <script src="../js/ratchet.js"></script>
 
         <!-- AngularJs -->
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
         <title>Let's Go</title>
     </head>
+ 
     <body>
 
         <header class="bar bar-nav">
+             <button class="btn btn-link btn-nav pull-left" onClick="javascript: history.back();">
+                 <span class="icon icon-back"></span>
+                 Back
+             </button>
             <h1 class="title">Let's go?</h1>
         </header>
         <br><br>
 
         <div class="content">
             <center>
-            <img src="img/logo.png"></img>
+            <img src="../img/logo.png"></img>
             </center>
 
-        <button class="btn btn-primary btn-block" onClick="javascript: location.href='html/login.html'">Login</button>
-        <button class="btn btn-primary btn-block" onClick="javascript: location.href='html/signup.html'">Sign up</button>
-        <br><br>
-        <button class="btn btn-primary btn-block">Exit</button>
+            <input type="text" placeholder="Your Name" id="name" required>
+            <br>
+            <input type="text" placeholder="Your Last Name" id="last_name" required>
+            <br>
+            <input type="email" placeholder="Your email" id="email" required>
+            <br>
+            <input type="password" placeholder="Your password" id="passwd" required>
+            <br>
+            <input type="date" placeholder="Your Birth Date" id="born" required>
+            <br>
+            <select id="sex">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+            <br><br>
+            <button class="btn btn-primary btn-block" onClick="javascript: login.get_create_data();">Sign Up!</button>
 
         </div>
 
@@ -47,6 +66,6 @@
         </nav>
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
     </body>
 </html>
